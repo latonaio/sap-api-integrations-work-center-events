@@ -1,0 +1,162 @@
+{"openapi":"3.0.0",
+  "info":{
+    "title":"Work Center",
+    "version":"1.0",
+    "description":"Work center is an area or section of a production facility where production operations are performed. The production operators assigned to a work center perform the production order operations dispatched to the same work center. It contains data relevant for costing, scheduling and capacity planning. The following events are available for work center: \n - Work center changed \n - Work center created \n - Work center deleted"},
+    "externalDocs":{
+      "description":"Business Documentation",
+      "url":"https://help.sap.com/viewer/a6f0333202384ba2b48a841a4a6deb1b/2021.000/en-US/3910781dc5b84e7abf6da910a54760ef.html"},
+      "components":{
+        "schemas":{
+          "sap.s4.beh.workcenter.v1.WorkCenter.Changed.v1":{
+            "type":"object",
+            "properties":{
+              "Plant":{"type":"string"},
+              "WorkCenter":{"type":"string"},
+              "WorkCenterInternalID":{"type":"string"},
+              "WorkCenterTypeCode":{"type":"string"}
+              }
+              },
+          "sap.s4.beh.workcenter.v1.WorkCenter.Created.v1":{
+            "type":"object",
+            "properties":{
+              "Plant":{"type":"string"},
+              "WorkCenter":{"type":"string"},
+              "WorkCenterInternalID":{"type":"string"},
+              "WorkCenterTypeCode":{"type":"string"}
+              }
+              },
+          "sap.s4.beh.workcenter.v1.WorkCenter.Deleted.v1":{
+            "type":"object",
+            "properties":{
+              "Plant":{"type":"string"},
+              "WorkCenter":{"type":"string"},
+              "WorkCenterInternalID":{"type":"string"},
+              "WorkCenterTypeCode":{"type":"string"}
+              }
+              },
+          "CloudContext":{
+            "title":"Schema for the CloudEvents context fields.",
+            "description":"This is a schema specification for the context fields as per CloudEvent standards.",
+            "type":"object",
+            "properties":{
+              "specversion":{
+                "description":"The version of the CloudEvents specification which the event uses. This enables the interpretation of the context.","type":"string"},
+                "type":{
+                  "description":"Type of occurrence which has happened. Often this property is used for routing, observability, policy enforcement, etc.",
+                  "type":"string",
+                  "minLength":1},
+                "source":{
+                  "description":"This describes the event producer.",
+                  "type":"string",
+                  "format":"uri-reference"},
+                "subject":{
+                  "description":"The subject of the event in the context of the event producer (identified by source).",
+                  "type":"string",
+                  "minLength":1},
+                "id":{
+                  "description":"ID of the event.",
+                  "type":"string",
+                  "minLength":1},
+                "time":{
+                  "description":"Timestamp of when the occurrence happened. Must adhere to RFC 3339.",
+                  "type":"string",
+                  "format":"date-time"},
+                  "datacontenttype":{
+                    "description":"Describe the data encoding format",
+                    "type":"string"}
+                    },
+                  "required":["id","specversion","source","type"]
+                  }
+                  }
+                  },
+    "paths":{
+      "/sap.s4.beh.workcenter.v1.WorkCenter.Changed.v1":{
+        "post":{
+          "tags":["Changed"],
+          "x-payload":"",
+          "description":"This event is raised when a work center is changed.",
+          "summary":"Work Center Changed",
+          "requestBody":{
+            "content":{
+              "application/json":{
+                "schema":{
+                  "allOf":[
+                    {"type":"object","$ref":"#/components/schemas/CloudContext"},
+                    {"type":"object",
+                      "properties":{
+                        "data":{
+                          "description":"Data Fields",
+                          "$ref":"#/components/schemas/sap.s4.beh.workcenter.v1.WorkCenter.Changed.v1"}
+                          }
+                    }
+                    ]
+                    }
+                    }
+                    }
+                    },
+          "responses":{
+            "default":{"description":"Successful"}
+            }
+            }
+            },
+    "/sap.s4.beh.workcenter.v1.WorkCenter.Created.v1":{
+      "post":{
+        "tags":["Created"],
+        "x-payload":"",
+        "description":"This event is raised when a work center is created.",
+        "summary":"Work Center Created",
+        "requestBody":{
+          "content":{
+            "application/json":{
+              "schema":{
+                "allOf":[
+                  {"type":"object","$ref":"#/components/schemas/CloudContext"},
+                  {"type":"object",
+                    "properties":{
+                      "data":{
+                        "description":"Data Fields",
+                        "$ref":"#/components/schemas/sap.s4.beh.workcenter.v1.WorkCenter.Created.v1"}
+                        }
+                  }
+                  ]
+                  }
+                  }
+                  }
+                  },
+        "responses":{
+          "default":{"description":"Successful"}
+          }
+          }
+          },
+    "/sap.s4.beh.workcenter.v1.WorkCenter.Deleted.v1":{
+      "post":{
+        "tags":["Deleted"],
+        "x-payload":"",
+        "description":"This event is raised when a work center is deleted.",
+        "summary":"Work Center Deleted",
+        "requestBody":{
+          "content":{
+            "application/json":{
+              "schema":{
+                "allOf":[
+                  {"type":"object","$ref":"#/components/schemas/CloudContext"},
+                  {"type":"object",
+                    "properties":{
+                      "data":{
+                        "description":"Data Fields",
+                        "$ref":"#/components/schemas/sap.s4.beh.workcenter.v1.WorkCenter.Deleted.v1"}
+                        }
+                  }
+                  ]
+                  }
+                  }
+                  }
+                  },
+        "responses":{
+          "default":{"description":"Successful"}
+          }
+          }
+          }
+          }
+}
